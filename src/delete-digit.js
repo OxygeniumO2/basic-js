@@ -18,7 +18,7 @@ function deleteDigit(n) {
    let numberWithoutOneDigit = +(nToStr.slice(0, i) + nToStr.slice(i + 1));
    arr.push(numberWithoutOneDigit);
  }
- return arr.sort((a, b) => a - b)[arr.length - 1];
+ return arr.sort((a, b) => a - b).pop();
 }
 
 module.exports = {
