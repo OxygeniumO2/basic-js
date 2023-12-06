@@ -12,6 +12,13 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function deleteDigit(n) {
+  let arr = [];
+ let nToStr = n.toString();
+ for (let i = 0; i < nToStr.length; i += 1) {
+   let numberWithoutOneDigit = +(nToStr.slice(0, i) + nToStr.slice(i + 1));
+   arr.push(numberWithoutOneDigit);
+ }
+ return arr.sort((a, b) => a - b)[arr.length - 1];
 }
 
 module.exports = {
