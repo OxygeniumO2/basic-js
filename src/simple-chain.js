@@ -14,11 +14,15 @@ const chainMaker = {
   },
   addLink(value) {
 
-   this.chain.push(value);
+   this.chain.push(`( ${value} )`);
     return this;
   },
   removeLink(position) {
-    this.chain.remove(position, 1);
+    if (position <= 0 || position > this.chain.length || typeof position !== 'number') {
+      this.chain = [];
+      throw new Error(`You can't remove incorrect link!`);
+    }
+    this.chain.splice(position - 1, 1);
     return this;
   },
   reverseChain() {
@@ -26,7 +30,8 @@ const chainMaker = {
     return this;
   },
   finishChain() {
-    let str = this.chain.join('~~')
+    let str = this.chain.join('~~');
+    this.chain = [];
     return str;
   }
 };
