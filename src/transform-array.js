@@ -54,7 +54,7 @@ function transform(arr) {
     return acc;
   }, []);
 
-  return res.filter(item => !isNaN(item));
+  return res.filter(item => item !== '--discard-next' && item !== '--discard-prev' && item !== '--double-next' && item !== '--double-prev');
 
 }
 

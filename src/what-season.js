@@ -13,8 +13,12 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function getSeason(date) {
 
-  if (!(date instanceof Date)) {
+  if(!arguments.length) {
     return 'Unable to determine the time of year!';
+  }
+
+  if (!(date instanceof Date)) {
+    throw Error('Invalid date!');
   }
 
     let month = date.getMonth();
